@@ -1,0 +1,9 @@
+.ocultar{
+    visibility: hidden;
+}
+
+/*Si Paso el mouse por encima*/
+
+li:hover *{
+    visibility: visible;
+}
