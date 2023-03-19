@@ -1,8 +1,5 @@
 import React, { useEffect, useState } from "react";
 
-//include images into your bundle
-import rigoImage from "../../img/rigo-baby.jpg";
-
 //Importo estilos
 import "../../styles/todolist.css"
 
@@ -51,7 +48,8 @@ const Home = () => {
 							Eliminar
 					</button>
 					</li>
-					})}</>
+					})}
+					</>
 				:
 				<><h1>No hay tareas</h1></>
 				}

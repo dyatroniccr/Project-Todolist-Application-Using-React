@@ -7,3 +7,24 @@
 li:hover *{
     visibility: visible;
 }
+
+.titulo {
+    color: rgba(155, 9, 9, 0.432);
+}
+.container-todo-shadow{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+.container-todo-shadow1{
+    padding-top: 4px;
+    width: calc(100% - 6px);
+    box-shadow: 0px 1px 1px 1px gainsboro;
+}
+.container-todo-shadow2{
+    padding-top: 4px;
+    width: calc( 100% - 12px);
+    box-shadow: 0px 1px 1px 1px gainsboro;
+}
