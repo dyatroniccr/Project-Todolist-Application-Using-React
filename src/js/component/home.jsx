@@ -28,7 +28,7 @@ const Home = () => {
 					onKeyDown={(e)=>{
 						if(e.keyCode == "13"){
 							console.log("Presionaste el Enter: ", e.target.value)
-							setArrTemp([...arrTemp, e.target.value])
+							setArrTemp([...arrTemp, {tarea: e.target.value, done:false}])
 						}
 					}}
 			    />
@@ -36,13 +36,14 @@ const Home = () => {
 			<div className="row">
 				{arrTemp && arrTemp.length > 0 ?
 				    <>{arrTemp.map((item, index)=> { //Funcion callback
-					return<li key={index} className="d-flex justify-content-between">
-						{item.tarea} - {item.done ? "Realizada" : "Por Hacer"}
+					return <li key={index} className="d-flex justify-content-between">
+						{item.tarea} -- {item.done ? "Realizada" : "Por Hacer"}
 						<button 
 						   className="ocultar" 
 						   type="button"
 						   onClick={() => {
 							    eliminarTarea(index)
+								console.log(index)
 						}}					
 					>
 							Eliminar

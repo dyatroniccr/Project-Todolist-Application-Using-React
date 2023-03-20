@@ -8,6 +8,13 @@ li:hover *{
     visibility: visible;
 }
 
+/*body {
+    background-color: black;
+}*/
+.principal {
+    background-color:rgba(245,245,245);
+    padding-bottom: 100%;
+}
 .titulo {
     color: rgba(155, 9, 9, 0.432);
 }
