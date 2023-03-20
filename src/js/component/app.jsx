@@ -10,7 +10,7 @@ import "../../styles/todolist.css"
 const App = () => {
     const headerStyle = { textAlign: "center", verticalAlign: "middle" };
 
-    return (
+    return (        
         <div className="container principal">
             <div className="container-header">
                 <h1 className="titulo opacity-25" style={ headerStyle } >todos</h1>
@@ -19,9 +19,9 @@ const App = () => {
                               
                 <TaskList />
             </div>       
-
-        </div>        
-);
+        </div>   
+          
+    );
 };
 
 

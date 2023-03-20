@@ -21,7 +21,7 @@ const TaskList = () => {
     }, []);
     
     const addNewTask = (newTaskName) => {
-        setTasks([ ...tasks, {id: tasks.length, tarea: newTaskName, done: false }]);
+        setTasks([ ...tasks, {id: tasks.length, tarea: newTaskName, done: false }]);       
     };
     
     //Funcion para eliminar un elemento
@@ -33,13 +33,14 @@ const TaskList = () => {
     };   
     
     return (
+        <>
         <div className="">
             <div className="border ms-2 me-3 ps-5 pb-3 pt-3 d-flex justify-content-between"> 
                     <input type="text" ref={inputName}   name="name" className="fs-4" 
                         placeholder="What needs to be done?" onKeyDown={(e)=>{
                             if(e.keyCode == "13"){
                                 console.log("Presionaste el Enter: ", e.target.value) 
-                                addNewTask(e.target.value)
+                                addNewTask(e.target.value)                                
                              }
                         }
                        }
@@ -73,7 +74,7 @@ const TaskList = () => {
             </>
             }        
         </div>        
-        
+        </>
     );    
 };
 
