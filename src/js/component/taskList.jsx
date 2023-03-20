@@ -1,72 +1,80 @@
-import React, { useState, useEffect } from "react";
-
+import React, { useState, useEffect, useRef } from "react";
+import { FaTrashAlt } from "react-icons/fa";
 
 //Components 
-import trashIcon from "../../img/trash3.svg";
+
+//Styles
+import "../../styles/todolist.css"
 
 const TaskList = () => {
+    const inputName = useRef(null);    
     
     //Declaracion de Variables
     const [tasks, setTasks] = useState([
-		{ id:1, tarea: "Practivas React", done: false},
+		{ id:1, tarea: "Practicar React", done: false},
 		{ id:2, tarea: "Ir al cine", done:false }
 		]);
 
+
+    useEffect(() => {
+        inputName.current.focus();
+    }, []);
+    
     const addNewTask = (newTaskName) => {
         setTasks([ ...tasks, {id: tasks.length, tarea: newTaskName, done: false }]);
     };
     
-    const removeTask = () => {
-        setTasks((current) =>
-          current.filter((task) => task.id !== 1)
-        );
-      };
-    const eliminarTarea = (id) => {
-        tasks.filter((tasks) => {
-            console.log(tasks.id);
-            console.log(id)
-                (tasks.id === id) ? console.log(tasks.id) : console.log("No esta")
-
-                //return index =! indice
-            }
-        );
-    }
+    //Funcion para eliminar un elemento
+    const removeTask = (id) => {
+        setTasks(
+          tasks.filter((item, index) => {
+            return index != id
+          }));
+    };   
+    
     return (
         <div className="">
+            <div className="border ms-2 me-3 ps-5 pb-3 pt-3 d-flex justify-content-between"> 
+                    <input type="text" ref={inputName}   name="name" className="fs-4" 
+                        placeholder="What needs to be done?" onKeyDown={(e)=>{
+                            if(e.keyCode == "13"){
+                                console.log("Presionaste el Enter: ", e.target.value) 
+                                addNewTask(e.target.value)
+                             }
+                        }
+                       }
+                    />
+                </div>  
            {tasks && tasks.length > 0 ?
-				<>{tasks.map((item,index) => (
+				<>
+                  {tasks.map((item,index) => (
                     <>
-                    <div key={item.id} className="border border-danger d-flex justify-content-between">
+                    <div key={item.id} className="tarea border fs-3 ms-2 me-3 ps-5 pb-3 pt-3 d-flex justify-content-between">
                         { item.tarea }
-                    <button 
-						   className="ocultar" 
-						   type="button"
+                        <button type="button" className="ocultar border border-0 me-2 " style={{width:40, height:40}}						   
 						   onClick={() => {
-							    eliminarTarea(index)
-						}}	>
-							Eliminar
-					</button>
-                    </div> 
-                    <li key={item.id}> { item.tarea }
-                    <button 
-						   className="ocultar" 
-						   type="button"
-						   >							
-                            eliminar
-					</button>
-                    </li>  
+                            removeTask(index)
+						   }}	
+                        >
+							<FaTrashAlt />
+					    </button>
+                    </div>    
                     
-                    </>        
+                    </>                             
                 ))
-                } 
+                }
+                <div className="border text-black-50 ms-2 me-3 p-2 "> {tasks.length} item left</div> 
                 </>
             :
-			<><h1>No hay tareas</h1></>
+			<>
+            <div className="border ms-2 me-3 ps-5 pb-3 pt-3 d-flex justify-content-between"> 
+                <h1>No hay tareas</h1>
+            </div>
+            </>
             }        
         </div>        
         
-    );
-    
+    );    
 };
 
 export default TaskList;

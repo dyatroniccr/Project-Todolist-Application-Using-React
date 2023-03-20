@@ -5,17 +5,17 @@ import "../../styles/todolist.css"
 
 //create your first component
 const Home = () => {
+	//const arrTemp = ["Pasear al perro", "Ir al cine"]
 	const[arrTemp, setArrTemp] = useState([
 		{ tarea: "Pasear al perro", done: false},
 		{ tarea: "Ir al cine", done:false }
 		])
-    //const arrTemp = ["Pasear al perro", "Ir al cine"]
+    
 	const eliminarTarea = (indice) =>{
 		setArrTemp(
 			arrTemp.filter((item, index) => {
-				return index =! indice
-		    })
-		)
+				return index != indice
+		}))
 	}
 
 	useEffect(()=>{console.log("Se reenderizo el componente Home")},[arrTemp])
@@ -42,8 +42,7 @@ const Home = () => {
 						   className="ocultar" 
 						   type="button"
 						   onClick={() => {
-							    eliminarTarea(index)
-								console.log(index)
+							    eliminarTarea(index)								
 						}}					
 					>
 							Eliminar

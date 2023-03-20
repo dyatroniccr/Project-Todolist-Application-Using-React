@@ -1,29 +1,45 @@
+body {
+    background-color: black;
+}
+
 .ocultar{
-    visibility: hidden;
+    visibility: hidden;    
 }
 
 /*Si Paso el mouse por encima*/
 
-li:hover *{
+.tarea:hover *{
     visibility: visible;
 }
 
-/*body {
-    background-color: black;
-}*/
 .principal {
     background-color:rgba(245,245,245);
     padding-bottom: 100%;
+    
 }
+
 .titulo {
     color: rgba(155, 9, 9, 0.432);
+    font-size: 140px;
+    font-weight: 50;
+}
+
+*:focus {
+    outline: none;
+    background-color: white;
+}
+
+input {
+    border: 0;
+    background-color:rgba(245,245,245);
+    padding-right: 25%;
 }
 .container-todo-shadow{
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    width: 100%;
+    width: 90%;
 }
 .container-todo-shadow1{
     padding-top: 4px;
